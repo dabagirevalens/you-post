@@ -4,7 +4,7 @@ require('dotenv').config({ path: './env' })
 
 const dbConnect = () => {
     mongoose
-        .connect(process.env.DB_CONNECTION_RUL || `mongodb+srv://reboost:AQk2M5qlpwRBx3GR@you-post.xorhw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`, {
+        .connect(process.env.DB_CONNECTION_RUL || `mongodb://127.0.0.1:27017/youpostdb`, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         })
