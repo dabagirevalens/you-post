@@ -6,8 +6,8 @@ function sendEmail(options) {
     const transport = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: `${process.env.USER_EMAIL}`,
-            pass: `${process.env.USER_PASS}`
+            user: `${process.env.USER_EMAIL}`, // add any email with enabled less secure apps
+            pass: `${process.env.USER_PASS}` // provide corresponding password
         }
     })
     const mailOptions = {
