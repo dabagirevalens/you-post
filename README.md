@@ -9,3 +9,7 @@ pnpm run dev
 
 ## production server
 pnpm start
+
+
+##more...
+isValidSubsequence function can be found in subSequences.js file
