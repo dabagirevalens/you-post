@@ -1,0 +1,37 @@
+{
+  "name": "you-post",
+  "version": "1.0.0",
+  "description": "Personal posts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dabagirevalens/you-post.git"
+  },
+  "author": "DABAGIRE Valens",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dabagirevalens/you-post/issues"
+  },
+  "homepage": "https://github.com/dabagirevalens/you-post#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.2.7",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.7.2",
+    "openapi-types": "^10.0.0",
+    "swagger-jsdoc": "^6.1.0",
+    "swagger-ui-express": "^4.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

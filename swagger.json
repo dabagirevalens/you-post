@@ -1,0 +1,619 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Reboost You-post APIs doc",
+        "version": "1.0.0",
+        "title": "Reboost You post  APIS",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "Reboost You-post",
+            "email": "valendabagire@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000/api/v1"
+        },
+        {
+            "url": "https://you-post-reboost.herokuapp.com/api/v1"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Users",
+            "description": "Reboost You-post Users"
+        },
+        {
+            "name": "Posts",
+            "description": "Reboost You-post  Posts"
+        }
+    ],
+    "paths": {
+        "/api/v1/users/register": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Register new user",
+                "description": "Reboost new user",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "properties": {
+                            "userName": {
+                                "type": "string",
+                                "example": "john deo"
+                            },
+                            "email": {
+                                "type": "string",
+                                "example": "valensdabagire@gmail.com"
+                            },
+                            "password": {
+                                "type": "string",
+                                "example": "qwerty1234"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "You have registered successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
+        "/api/v1/users/login": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "User login",
+                "description": "Reboost You-post User login",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "properties": {
+                            "email": {
+                                "type": "string",
+                                "example": "valensdabagire@gmail.com"
+                            },
+                            "password": {
+                                "type": "string",
+                                "example": "qwerty1234"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Logged in successfully."
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
+        "/api/v1/users/me": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Logged in user ",
+                "description": "Get Logged in user.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User was found."
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Update user profile.",
+                "description": "Update user information",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "required": true
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "properties": {
+                            "userName": {
+                                "type": "string",
+                                "example": "Deo John"
+                            },
+                            "email": {
+                                "type": "string",
+                                "example": "valensdabagire@gmail.com"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully updated profile"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
+        "/api/v1/users/password/change": {
+            "put": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Change user password",
+                "description": "Delete user",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "required": true
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "properties": {
+                            "currentPassword": {
+                                "type": "string",
+                                "example": "qwerty1234"
+                            },
+                            "newPassword": {
+                                "type": "string",
+                                "example": "qwerty12345"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Password was changed successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
+        "/api/v1/users/password/forgot": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Forgot password",
+                "description": "Request password reset email.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "properties": {
+                            "email": {
+                                "type": "string",
+                                "example": "valensdabagire@gmail.com"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Password reset email sent successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
+        "/api/v1/users/password/reset/{code}": {
+            "put": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Forgot password",
+                "description": "Request password reset email.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "code",
+                        "in": "path",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "properties": {
+                            "password": {
+                                "type": "string",
+                                "example": "qwerty12345"
+                            },
+                            "confirmPassword": {
+                                "type": "string",
+                                "example": "qwerty12345"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Password was reset successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
+        "/api/v1/users/me/delete": {
+            "delete": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Delete user profile.",
+                "description": "Delete user",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully Delete profile"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
+        "/api/v1/posts/new": {
+            "post": {
+                "tags": [
+                    "Posts"
+                ],
+                "summary": "New post.",
+                "description": "Create new post",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "required": true
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "properties": {
+                            "postBody": {
+                                "type": "string",
+                                "example": "EUFCL Final"
+                            },
+                            "category": {
+                                "type": "string",
+                                "example": "sports"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully created new post"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
+        "/api/v1/posts": {
+            "get": {
+                "tags": [
+                    "Posts"
+                ],
+                "summary": "All posts.",
+                "description": "Get all available posts",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "All posts"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
+        "/api/v1/posts/{category}": {
+            "get": {
+                "tags": [
+                    "Posts"
+                ],
+                "summary": "All posts in any category",
+                "description": "Get all posts in the same category",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "category",
+                        "in": "path",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully got all posts in the same category"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
+        "/api/v1/posts/post/{postId}": {
+            "get": {
+                "tags": [
+                    "Posts"
+                ],
+                "summary": "Single post",
+                "description": "Get single post ",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "postId",
+                        "in": "path",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Post was found successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
+        "/api/v1/posts/post/edit/{postId}": {
+            "patch": {
+                "tags": [
+                    "Posts"
+                ],
+                "summary": "Update Single post",
+                "description": "Update single post ",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "required": true
+                    },
+                    {
+                        "name": "postId",
+                        "in": "path",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in" : "body",
+                        "name" : "body",
+                        "required": true,
+                        "properties": {
+                            "postBody": {
+                                "type": "string",
+                                "example": "EUFCL semi-Final"
+                            },
+                            "category": {
+                                "type": "string",
+                                "example": "sports"
+                            }
+                        }
+
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Post updated found successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
+        "/api/v1/posts/post/delete/{postId}": {
+            "delete": {
+                "tags": [
+                    "Posts"
+                ],
+                "summary": "Delete Single post",
+                "description": "Delete single post ",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "required": true
+                    },
+                    {
+                        "name": "postId",
+                        "in": "path",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Post was deleted successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Post Not found"
+                    }
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    },
+    "externalDocs": {
+        "description": "Find out more about Swagger",
+        "url": "http://swagger.io"
+    }
+}
