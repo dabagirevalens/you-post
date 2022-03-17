@@ -11,5 +11,5 @@ pnpm run dev
 pnpm start
 
 
-##more...
+## more...
 isValidSubsequence function can be found in subSequences.js file
